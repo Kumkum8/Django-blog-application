@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+
+{%load static%}
+
+{%block body%}
+<div class="container  text-center">
+    <h1 class="text-center text-white">Welcome, {{ profile.user.username }}</h1>
+    <!-- Display the profile image --><br><br>
+    {% if profile.image %}
+    <img src="{{ profile.image.url }}" class="rounded-circle " style="height:200px;width:200px" alt="Profile Image">
+   
+    
+    {% endif %}
+    <h3 class="text-success text-capitalize mt-5">{{ profile.user.username }}</h3>
+    <!-- Buttons to edit or delete profile photo -->
+    <div class="mt-3">
+        <a href="{% url 'edit_profile_photo' %}" class="btn btn-primary mb-5">Edit Photo</a>
+        <a href="{% url 'delete_profile_photo' %}" class="btn btn-danger mb-5">Delete Photo</a>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+{%endblock%}

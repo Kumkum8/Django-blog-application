@@ -1,0 +1,82 @@
+{% extends 'base.html'%}
+
+{%load static%}
+{%block body%}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>Message</strong> {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+<!--blog part-->
+<h3>{{msg}}</h3>
+<h4>{{msgs}}</h4>
+<h1 class="display-1 text-center text-secondary">THE BLOG</h1>
+<div class="container-fluid  text-center d-flex flex-wrap  justify-content-between">
+
+
+    <div class="card col-lg-5 col-md-5 col-sm-12   mx-auto bg-transparent text-white border-secondary ">
+        <img src="{%static 'images/img1.webp'%}" class="card-img-top" alt="..." height="400px">
+        <div class="card-body ">
+            <h3 class="card-title text-secondary">10 Tips for relaxation</h3>
+            <p class="card-text text-start">1. Enjoy a natural high as the release of endorphins associated with
+                meditation
+                allows you to relax and de-stress from daily challenges.<br>
+                2. Enjoy the elevated well-being associated with whole-brain functioning like improved decision
+                making and enhanced ability to...</p>
+            <a href="blog1" class="btn btn-primary">Read more</a>
+        </div>
+    </div>
+
+
+
+    <div class="card col-lg-5 col-md-5 col-sm-12 mx-auto bg-transparent text-white border-secondary">
+        <img src="{%static 'images/img2.webp'%}" class="card-img-top" alt="..." height="400px">
+        <div class="card-body ">
+            <h3 class="card-title text-secondary">5 reasons to wake up at 5am</h3>
+            <p class="card-text text-start">If you've ever been up in the early morning, you may know just how peaceful
+                and quiet it can be. Waking up at 5am lets you experience these moments of calm every morning, which can
+                set you up for a more positive day.Here are some of the benefits.<br>Starting your day in peace: Early
+                mornings are usually calm and serene. There's less noise, fewer distractions, and it feels like you have
+                the world to yourself. This peaceful time is perfect for planning your day, enjoying a cup of tea, or
+                just sitting in silence.</p>
+            <a href="blog2" class="btn btn-primary">Read more</a>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+<div class="row mt-5">
+    {% for post in posts %}
+    <div class="col-md-5 my-3 mx-auto">
+        <div class="card-container card text-white bg-black border-secondary " style="background-color: black; ">
+            <div class="card text-white bg-transparent border-secondary">
+                <h4 class="author name text-capitalize " style="font-family: 'Courier New', Courier, monospace;">By
+                    {{post.author}}-</h4>
+                {% if post.image %}
+                <img src="{{ post.image.url }}" alt="Blog Image" class=" img-fluid  ">
+                {% endif %}
+
+
+                <div class="card-body ">
+                    <h3 class="card-title p-2 text-capitalize text-center ">{{post.title}}</h4>
+                        <p class="card-text ">{{post.content}}</p>
+                </div>
+
+                <small class="text-secondary text-end">{{post.created_on}}</small>
+                <a href="blog_detail/{{post.id}}" class="btn btn-success">Continue reading</a>
+
+            </div>
+
+        </div>
+    </div>
+    {%endfor%}
+</div>
+
+
+{%endblock%}

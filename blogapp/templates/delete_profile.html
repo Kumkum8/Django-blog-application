@@ -1,0 +1,13 @@
+<!-- delete_profile_photo.html -->
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <h2 class=" text-success bg-transparent">Delete Profile Photo</h2>
+    <p class="text-warning">Are you sure you want to delete your profile photo?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete Photo</button>
+        <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+body {
+
+    font-family: 'Gill Sans';
+    background-color: black;
+
+}
+
+.navbar-brand {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 30px;
+
+
+}
+
+nav {
+    height: 70px;
+    font-size: 18px
+}
+
+h2 {
+
+    background-color: white;
+    color: rgb(49, 187, 49)
+}

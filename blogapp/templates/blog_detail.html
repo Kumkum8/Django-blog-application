@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+
+{%load static%}
+{%block body%}
+<!--blog part-->
+
+<div class="row mt-5">
+
+    <div class="col-md-5 my-3 mx-auto">
+        <div class="card-container card text-white bg-black border-secondary " style="background-color: black; ">
+            <div class="card text-white bg-transparent border-secondary">
+                <h4 class="author name text-capitalize " style="font-family: 'Courier New', Courier, monospace;">By
+                    {{post.author}}-</h4>
+                {% if post.image %}
+                <img src="{{ post.image.url }}" alt="Blog Image" class=" img-fluid  ">
+                {% endif %}
+
+
+                <div class="card-body ">
+                    <h3 class="card-title p-2 text-capitalize text-center ">{{post.title}}</h4>
+                        <p class="card-text ">{{post.content}}</p>
+                </div>
+
+                <small class="text-secondary text-end">{{post.created_on}}</small>
+
+            </div>
+
+        </div>
+        {% if user.id == post.author_id %}
+      
+       <!-- <a class="btn btn-success my-3 " href="/edit/{{post.id}}">Edit</a>
+     
+        <a class="btn btn-danger mx-3 my-3" href="/deletepost/{{post.id}}">Delete</a>
+         -->
+         <a href="{% url 'deletepost' post.id %}"  class="btn btn-danger mx-2 my-3" >Delete </a>
+         <a href="{% url 'editpost' post.id %}"  class="btn btn-success  my-3" >Edit </a>
+
+      {% endif %}
+
+      
+    </div>
+
+
+</div>
+
+
+{%endblock%}

@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{%block body%}
+
+<h1 class="display-3 text-center text-secondary ">Edit your blog</h1>
+
+<form method="POST" action="{% url 'editpost' post.id %}"  enctype="multipart/form-data">
+    {%csrf_token%}
+<div class="container text-white  pb-5">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Title :</label>
+        <input type="text" name="title" class="form-control bg-dark  text-white" id="exampleFormControlInput1">
+    </div>
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description :</label>
+        <textarea class="form-control bg-dark text-white" name="Description"  id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    
+    <div class="form-group mb-3">
+        <label for="exampleFormControlInput1" class="form-label ">Choose an Image :</label>
+        <input type='file' id="exampleFormControlTextarea1" class="form-control bg-dark" name="image"></input>
+      </div>
+
+
+    <input type="submit" value="Post" name="submit" class="btn btn-primary px-4  mx-2">
+</div>
+
+</form>
+
+
+
+{%endblock%}

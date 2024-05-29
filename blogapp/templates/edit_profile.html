@@ -1,0 +1,15 @@
+<!-- edit_profile_photo.html -->
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+    <h2 class="text-primary bg-transparent">Edit Profile Photo</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="image">Upload New Profile Photo:</label>
+            <input type="file" class="form-control" id="image" name="image">
+        </div>
+        <button type="submit" class="btn btn-primary my-3">Save Changes</button>
+    </form>
+</div>
+{% endblock %}
